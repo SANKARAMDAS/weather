@@ -13,19 +13,16 @@ app.get('/', function (req, res){
             const weatherData = JSON.parse(data)
             console.log(weatherData);
 
-            const tempr = weatherData.main.feels_like
-            console.log(tempr)
-
-            const tem = weatherData.weather[0].description
-            console.log(tem)
-            // const obj = {
-            //     name: 'XXX',
-            //     favFood: 'Briyani',
-            // }
-            // console.log(JSON.stringify(obj));
+            const temp = weatherData.main.temp
+            const weatherDes = weatherData.weather[0].description
+            const icon = weatherData.weather[0].icon
+            const imGeURL = 'https://api.openweathermap.org/img/wn' + icon + '@2x.png'
+            res.write('<h1>The Temperature in Oslo is' + temp + 'degree cel </h1>');
+            res.write('<h1>Weather is like' + weatherDes + 'this </h1>')
+            res.write("<img src=" +imGeURL +">")
+            res.send()
         })
     })
-    res.send('Server is Up');
 })
 
 app.listen(8080, function(){
