@@ -21,6 +21,16 @@ app.get('/', function (req, res){
             res.write('<h1>Weather is like' + weatherDes + 'this </h1>')
             res.write("<img src=" +imGeURL +">")
             res.send()
+            const tempr = weatherData.main.feels_like
+            console.log(tempr)
+
+            const tem = weatherData.weather[0].description
+            console.log(tem)
+            // const obj = {
+            //     name: 'XXX',
+            //     favFood: 'Briyani',
+            // }
+            // console.log(JSON.stringify(obj));
         })
     })
 })
