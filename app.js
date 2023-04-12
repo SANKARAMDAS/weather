@@ -29,6 +29,7 @@ https.get(url, function(response){
         const tem = weatherData.weather[0].description
         console.log(tem)
         res.write('<h1>The tempararure in '+ query + ' is ' + tempr+ ' degree</h1>')
+        res.write('<h1> weather feels like ' + tempr +'</h1>')
         res.send();
         // const obj = {
         //     name: 'XXX',
